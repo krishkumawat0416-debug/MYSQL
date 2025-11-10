@@ -1,0 +1,103 @@
+use sakila;
+DELIMITER //
+
+create procedure p5(in var int)
+-- begin 
+--     krish : LOOP
+--     -- select actor_id from sakila.actor where actor_id< var
+--     set var = var+1;
+--     select * from actor where actor_id=var;
+--     
+--     IF var = 14 THEN
+--        LEAVE krish;
+--     END IF;   
+--        
+--     END LOOP;
+--     
+--     end //
+
+
+-- drop procedure create_email_list;
+-- DELIMITER $$
+-- -- procedure is created
+-- CREATE PROCEDURE create_email_list (in eid int,
+--        OUT email_list TEXT
+-- )
+-- BEGIN
+--     -- variable to access value from cursor to plsql
+-- 	DECLARE done BOOL DEFAULT false;
+-- 	DECLARE email_address VARCHAR(100) DEFAULT "";
+--     
+-- 	-- declare cursor for employee email
+-- 	DECLARE cur CURSOR FOR SELECT first_name FROM sakila.actor where actor_id < eid;
+--     
+--     -- handler to see cursor have all the elements
+--     DECLARE CONTINUE HANDLER 
+--        FOR NOT FOUND SET done = true;
+--      -- open the cursor
+-- 	OPEN cur;
+--     
+--     SET email_list = '';
+-- 	
+--     process_email: LOOP
+-- 		
+--         -- cur will first row and we insert it into the email_address variable
+--         FETCH cur INTO email_address;
+--         
+-- 		IF done = true THEN 
+-- 			LEAVE process_email;
+-- 		END IF;
+--         
+--      -- concatenate the email into the emailList
+-- 		SET email_list = CONCAT(email_address,";",email_list);
+-- 	END LOOP;
+--     
+--     -- close the cursor
+-- 	CLOSE cur;
+--     
+-- end $$    
+-- DELIMITER $$
+
+
+
+-- DELIMITER $$
+-- -- procedure is created
+-- CREATE PROCEDURE create_payment4(
+--        OUT result TEXT
+-- )
+-- BEGIN
+--     -- variable to access value from cursor to plsql
+-- 	DECLARE done BOOL DEFAULT false;
+-- 	DECLARE amount decimal (5,2);
+--     
+-- 	-- declare cursor for employee email
+-- 	DECLARE cur CURSOR FOR SELECT amount 
+--         FROM payment 
+--         WHERE payment_id < 10;
+--     
+--     -- handler to see cursor have all the elements
+--     DECLARE CONTINUE HANDLER 
+--        FOR NOT FOUND SET done = true;
+--      -- open the curso
+-- 	OPEN cur;
+--     
+--     SET result = '';
+-- 	
+--     process_payment: LOOP
+-- 		
+--         -- cur will first row and we insert it into the email_address variable
+--         FETCH cur INTO amount;
+--         
+-- 		IF amount = 5.99 THEN 
+-- 			LEAVE process_payment;
+-- 		END IF;
+--         
+--      -- concatenate the email into the emailList
+-- 		SET result = CONCAT(result, amount, ', ');
+-- 	END LOOP;
+--     
+--     -- close the cursor
+-- 	CLOSE cur;
+--     
+-- end $$    
+-- DELIMITER $$
